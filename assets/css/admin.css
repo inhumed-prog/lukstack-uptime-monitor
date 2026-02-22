@@ -1,0 +1,1034 @@
+:root {
+	/* Colors */
+	--primary-color: #4f46e5;
+	--primary-hover: #4338ca;
+	--success-color: #10b981;
+	--danger-color: #ef4444;
+	--warning-color: #f59e0b;
+	--info-color: #3b82f6;
+	--gray-50: #f9fafb;
+	--gray-100: #f3f4f6;
+	--gray-200: #e5e7eb;
+	--gray-300: #d1d5db;
+	--gray-400: #9ca3af;
+	--gray-500: #6b7280;
+	--gray-600: #4b5563;
+	--gray-700: #374151;
+	--gray-800: #1f2937;
+	--gray-900: #111827;
+
+	/* Borders & Shadows */
+	--border-radius: 8px;
+	--border-radius-sm: 4px;
+	--border-radius-lg: 12px;
+	--shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+	--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+	/* Transitions */
+	--transition-fast: 0.15s ease;
+	--transition-normal: 0.2s ease;
+	--transition-slow: 0.3s ease;
+
+	/* Spacing */
+	--spacing-xs: 4px;
+	--spacing-sm: 8px;
+	--spacing-md: 16px;
+	--spacing-lg: 24px;
+	--spacing-xl: 32px;
+}
+
+/* ============================
+   Main Container – Full Width
+   ============================ */
+.lukstack-wrap {
+	max-width: 100%;
+	margin: 20px 0;
+	padding-right: 20px;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.lukstack-wrap h1 {
+	font-size: 28px;
+	font-weight: 700;
+	color: var(--gray-900);
+	margin-bottom: var(--spacing-sm);
+}
+
+.lukstack-wrap h2 {
+	font-size: 18px;
+	font-weight: 600;
+	color: var(--gray-700);
+	margin-top: var(--spacing-xl);
+	margin-bottom: var(--spacing-md);
+	padding-bottom: var(--spacing-sm);
+	border-bottom: 2px solid var(--gray-200);
+}
+
+.lukstack-version {
+	font-size: 14px;
+	color: var(--gray-500);
+	font-weight: normal;
+	margin-left: 10px;
+}
+
+/* ============================
+   Card Style for Forms
+   ============================ */
+.lukstack-wrap form,
+.lukstack-form {
+	background: white;
+	padding: var(--spacing-lg);
+	border-radius: var(--border-radius);
+	box-shadow: var(--shadow-sm);
+	border: 1px solid var(--gray-200);
+	margin-bottom: var(--spacing-lg);
+}
+
+/* ============================
+   Input Styling
+   ============================ */
+.lukstack-wrap input[type="url"],
+.lukstack-wrap input[type="email"],
+.lukstack-wrap input[type="text"] {
+	padding: 10px 14px;
+	font-size: 14px;
+	border: 2px solid var(--gray-300);
+	border-radius: var(--border-radius);
+	margin-right: var(--spacing-sm);
+	transition: all var(--transition-normal);
+	background: white;
+}
+
+.lukstack-wrap input[type="url"]:focus,
+.lukstack-wrap input[type="email"]:focus,
+.lukstack-wrap input[type="text"]:focus {
+	border-color: var(--primary-color);
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.lukstack-wrap input[type="url"] {
+	min-width: 350px;
+}
+
+.lukstack-wrap input[type="email"] {
+	min-width: 220px;
+}
+
+.lukstack-wrap input.error {
+	border-color: var(--danger-color);
+	box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* ============================
+   Button Styling
+   ============================ */
+.lukstack-wrap .button {
+	padding: 10px 20px;
+	font-size: 14px;
+	font-weight: 500;
+	border-radius: var(--border-radius);
+	border: none;
+	cursor: pointer;
+	transition: all var(--transition-normal);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+	height: 38px;
+	line-height: 1;
+	vertical-align: middle;
+}
+
+.lukstack-wrap .button-primary {
+	background: var(--primary-color);
+	color: white;
+	box-shadow: var(--shadow-sm);
+}
+
+.lukstack-wrap .button-primary:hover {
+	background: var(--primary-hover);
+	box-shadow: var(--shadow-md);
+	transform: translateY(-1px);
+}
+
+.lukstack-wrap .button-primary:active {
+	transform: translateY(0);
+}
+
+.lukstack-wrap .button:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+	transform: none;
+}
+
+.lukstack-wrap .button.loading {
+	position: relative;
+	color: transparent;
+	pointer-events: none;
+}
+
+.lukstack-wrap .button.loading:after {
+	content: '';
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	top: 50%;
+	left: 50%;
+	margin-left: -8px;
+	margin-top: -8px;
+	border: 2px solid rgba(255, 255, 255, 0.3);
+	border-top: 2px solid white;
+	border-radius: 50%;
+	animation: lukstack-spin 0.8s linear infinite;
+}
+
+@keyframes lukstack-spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+/* Action Buttons */
+.lukstack-wrap .lukstack-check {
+	background: white;
+	color: var(--primary-color);
+	border: 2px solid var(--primary-color);
+}
+
+.lukstack-wrap .lukstack-check:hover {
+	background: var(--primary-color);
+	color: white;
+	transform: translateY(-1px);
+	box-shadow: var(--shadow-md);
+}
+
+.lukstack-check:before {
+	content: "\27F3";
+	font-size: 16px;
+}
+
+.lukstack-wrap .lukstack-delete {
+	background: white;
+	color: var(--danger-color);
+	border: 2px solid var(--danger-color);
+}
+
+.lukstack-wrap .lukstack-delete:hover {
+	background: var(--danger-color);
+	color: white;
+	transform: translateY(-1px);
+	box-shadow: var(--shadow-md);
+}
+
+.lukstack-delete:before {
+	content: "\00D7";
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.lukstack-wrap .lukstack-bulk-check {
+	background: var(--info-color);
+	color: white;
+}
+
+.lukstack-wrap .lukstack-bulk-check:hover {
+	background: #2563eb;
+}
+
+/* ============================
+   Form Layout
+   ============================ */
+.lukstack-form .form-row {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.lukstack-form input.regular-text {
+	min-width: 300px;
+	flex: 1;
+}
+
+/* ============================
+   Table Container
+   ============================ */
+.lukstack-wrap .table-container {
+	background: white;
+	border-radius: var(--border-radius);
+	box-shadow: var(--shadow-sm);
+	border: 1px solid var(--gray-200);
+	overflow: hidden;
+}
+
+/* Table Styling */
+.lukstack-wrap .widefat {
+	margin: 0;
+	border: none;
+	border-radius: 0;
+	background: transparent;
+}
+
+.lukstack-wrap .widefat thead {
+	background: var(--gray-50);
+	border-bottom: 2px solid var(--gray-200);
+}
+
+.lukstack-wrap .widefat thead th {
+	padding: var(--spacing-md) 20px;
+	font-weight: 600;
+	font-size: 13px;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: var(--gray-700);
+	border: none;
+}
+
+.lukstack-wrap .widefat tbody tr {
+	border-bottom: 1px solid var(--gray-200);
+	transition: background-color var(--transition-fast);
+}
+
+.lukstack-wrap .widefat tbody tr:last-child {
+	border-bottom: none;
+}
+
+.lukstack-wrap .widefat tbody tr:hover {
+	background: var(--gray-50);
+}
+
+.lukstack-wrap .widefat td {
+	padding: var(--spacing-md) 20px;
+	vertical-align: middle;
+	color: var(--gray-700);
+	border: none;
+}
+
+.lukstack-wrap .widefat .site-url {
+	font-weight: 500;
+	color: var(--primary-color);
+}
+
+.lukstack-wrap .widefat td.actions {
+	text-align: center;
+	vertical-align: middle;
+}
+
+.lukstack-wrap .widefat .lukstack-action-buttons {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	align-items: center;
+}
+
+.lukstack-wrap .widefat .lukstack-action-buttons .button {
+	width: 110px;
+	display: inline-flex;
+	justify-content: center;
+	margin: 0;
+}
+
+/* ============================
+   Status Badges
+   ============================ */
+.lukstack-badge {
+	padding: 6px 14px;
+	border-radius: 20px;
+	font-weight: 600;
+	font-size: 11px;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	white-space: nowrap;
+	box-shadow: var(--shadow-sm);
+}
+
+.lukstack-badge:before {
+	content: "";
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	display: inline-block;
+}
+
+.lukstack-badge.up {
+	background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+	color: #065f46;
+	border: 1px solid #6ee7b7;
+}
+
+.lukstack-badge.up:before {
+	background: var(--success-color);
+	box-shadow: 0 0 4px var(--success-color);
+}
+
+.lukstack-badge.down {
+	background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+	color: #991b1b;
+	border: 1px solid #fca5a5;
+}
+
+.lukstack-badge.down:before {
+	background: var(--danger-color);
+	box-shadow: 0 0 4px var(--danger-color);
+}
+
+.lukstack-badge.error {
+	background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+	color: #92400e;
+	border: 1px solid #fcd34d;
+}
+
+.lukstack-badge.error:before {
+	background: var(--warning-color);
+	box-shadow: 0 0 4px var(--warning-color);
+}
+
+.lukstack-badge.unknown {
+	background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+	color: var(--gray-600);
+	border: 1px solid var(--gray-300);
+}
+
+.lukstack-badge.unknown:before {
+	background: var(--gray-400);
+}
+
+/* ============================
+   Statistics Cards
+   ============================ */
+.lukstack-stats {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: var(--spacing-md);
+	margin-bottom: var(--spacing-lg);
+}
+
+.lukstack-stat-card {
+	background: white;
+	padding: 20px;
+	border-radius: var(--border-radius);
+	box-shadow: var(--shadow-sm);
+	border: 1px solid var(--gray-200);
+	transition: all var(--transition-normal);
+}
+
+.lukstack-stat-card:hover {
+	box-shadow: var(--shadow-md);
+	transform: translateY(-2px);
+}
+
+.lukstack-stat-card h3 {
+	font-size: 13px;
+	color: var(--gray-600);
+	margin: 0 0 var(--spacing-sm) 0;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	font-weight: 600;
+}
+
+.lukstack-stat-card .stat-value {
+	font-size: 32px;
+	font-weight: 700;
+	color: var(--gray-900);
+}
+
+/* Stat card colored accents and value colors */
+.lukstack-stat-card.stat-up {
+	border-left: 4px solid var(--success-color);
+}
+
+.lukstack-stat-card.stat-up .stat-value {
+	color: var(--success-color);
+}
+
+.lukstack-stat-card.stat-down {
+	border-left: 4px solid var(--danger-color);
+}
+
+.lukstack-stat-card.stat-down .stat-value {
+	color: var(--danger-color);
+}
+
+.lukstack-stat-card.stat-warning {
+	border-left: 4px solid var(--warning-color);
+}
+
+.lukstack-stat-card.stat-warning .stat-value {
+	color: var(--warning-color);
+}
+
+/* ============================
+   Email Display
+   ============================ */
+.lukstack-email {
+	color: var(--primary-color);
+}
+
+.lukstack-email-empty {
+	color: var(--gray-400);
+}
+
+/* ============================
+   Settings Page
+   ============================ */
+.lukstack-wrap .form-table {
+	background: white;
+	padding: var(--spacing-lg);
+	border-radius: var(--border-radius);
+	box-shadow: var(--shadow-sm);
+	border: 1px solid var(--gray-200);
+}
+
+.lukstack-wrap .form-table th {
+	width: 220px;
+	padding: 20px 20px 20px 0;
+	font-weight: 600;
+	color: var(--gray-900);
+}
+
+.lukstack-wrap .form-table td {
+	padding: 20px 20px 20px 0;
+}
+
+.lukstack-wrap .form-table input.regular-text {
+	width: 100%;
+	max-width: 500px;
+	padding: 10px 14px;
+	border: 2px solid var(--gray-300);
+	border-radius: var(--border-radius);
+	font-size: 14px;
+	transition: all var(--transition-normal);
+}
+
+.lukstack-wrap .form-table input.regular-text:focus {
+	border-color: var(--primary-color);
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.lukstack-wrap .description {
+	color: var(--gray-600);
+	font-size: 13px;
+	margin-top: var(--spacing-sm);
+	line-height: 1.5;
+}
+
+/* ============================
+   Notices
+   ============================ */
+.lukstack-wrap .notice {
+	margin: 20px 0;
+	padding: 12px var(--spacing-md);
+	border-radius: var(--border-radius);
+	border-left: 4px solid;
+	box-shadow: var(--shadow-sm);
+}
+
+.lukstack-wrap .notice-success {
+	background: #d1fae5;
+	border-left-color: var(--success-color);
+	color: #065f46;
+}
+
+.lukstack-wrap .notice-error {
+	background: #fee2e2;
+	border-left-color: var(--danger-color);
+	color: #991b1b;
+}
+
+.lukstack-wrap .notice-warning {
+	background: #fef3c7;
+	border-left-color: var(--warning-color);
+	color: #92400e;
+}
+
+.lukstack-wrap .notice-info {
+	background: #dbeafe;
+	border-left-color: var(--info-color);
+	color: #1e40af;
+}
+
+/* ============================
+   Toast Notifications
+   ============================ */
+.lukstack-toast {
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	padding: var(--spacing-md) var(--spacing-lg);
+	border-radius: var(--border-radius);
+	box-shadow: var(--shadow-lg);
+	font-weight: 500;
+	font-size: 14px;
+	z-index: 999999;
+	opacity: 0;
+	transform: translateY(20px);
+	transition: all var(--transition-slow);
+	max-width: 400px;
+}
+
+.lukstack-toast.show {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.lukstack-toast-success {
+	background: linear-gradient(135deg, var(--success-color) 0%, #059669 100%);
+	color: white;
+}
+
+.lukstack-toast-error {
+	background: linear-gradient(135deg, var(--danger-color) 0%, #dc2626 100%);
+	color: white;
+}
+
+.lukstack-toast-info {
+	background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+	color: white;
+}
+
+/* ============================
+   Header & Footer
+   ============================ */
+.lukstack-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.lukstack-header h2 {
+	margin: 0;
+}
+
+.lukstack-footer-info {
+	margin-top: 20px;
+	padding-top: 20px;
+	border-top: 1px solid var(--gray-200);
+}
+
+.lukstack-cron-info {
+	margin-top: -10px;
+	margin-bottom: 15px;
+}
+
+/* ============================
+   Empty State
+   ============================ */
+.no-sites {
+	text-align: center;
+	padding: 60px 20px;
+	color: var(--gray-600);
+	font-style: italic;
+	background: var(--gray-50);
+}
+
+/* ============================
+   Links
+   ============================ */
+.lukstack-wrap a {
+	color: var(--primary-color);
+	text-decoration: none;
+	transition: color var(--transition-normal);
+}
+
+.lukstack-wrap a:hover {
+	color: var(--primary-hover);
+	text-decoration: underline;
+}
+
+/* ============================
+   Scrollbar
+   ============================ */
+.lukstack-wrap ::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+.lukstack-wrap ::-webkit-scrollbar-track {
+	background: var(--gray-100);
+	border-radius: var(--border-radius-sm);
+}
+
+.lukstack-wrap ::-webkit-scrollbar-thumb {
+	background: var(--gray-300);
+	border-radius: var(--border-radius-sm);
+}
+
+.lukstack-wrap ::-webkit-scrollbar-thumb:hover {
+	background: var(--gray-700);
+}
+
+/* ============================
+   Page Load Animation
+   ============================ */
+@keyframes lukstack-fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.lukstack-wrap > * {
+	animation: lukstack-fadeInUp 0.4s ease-out;
+}
+
+/* ============================
+   Help Page Styles
+   ============================ */
+.lukstack-help-container {
+	max-width: 100%;
+}
+
+.lukstack-help-card {
+	background: #fff;
+	padding: 24px 30px;
+	margin-bottom: 20px;
+	border-radius: 6px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+	border: 1px solid #e0e0e0;
+}
+
+.lukstack-help-card h2 {
+	margin: 0 0 20px 0;
+	padding: 0 0 12px 0;
+	color: #1d2327;
+	font-size: 20px;
+	font-weight: 600;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.lukstack-help-card h3 {
+	color: #1d2327;
+	font-size: 15px;
+	font-weight: 600;
+	margin: 24px 0 12px 0;
+}
+
+.lukstack-help-card h3:first-of-type {
+	margin-top: 0;
+}
+
+.lukstack-help-card p {
+	color: #50575e;
+	line-height: 1.6;
+	margin: 0 0 12px 0;
+}
+
+.lukstack-help-card ul,
+.lukstack-help-card ol {
+	color: #50575e;
+	line-height: 1.6;
+	margin: 0 0 12px 0;
+	padding-left: 24px;
+}
+
+.lukstack-help-card li {
+	margin-bottom: 6px;
+}
+
+.lukstack-help-card code {
+	background: #f0f0f1;
+	padding: 2px 6px;
+	border-radius: 3px;
+	font-size: 13px;
+	font-family: Consolas, Monaco, monospace;
+}
+
+.lukstack-help-card pre {
+	background: #f6f7f7;
+	border: 1px solid #e0e0e0;
+	border-left: 3px solid #2271b1;
+	padding: 16px;
+	margin: 12px 0;
+	overflow-x: auto;
+	border-radius: 0 4px 4px 0;
+}
+
+.lukstack-help-card pre code {
+	background: none;
+	padding: 0;
+	font-size: 13px;
+	line-height: 1.5;
+}
+
+.lukstack-help-card a {
+	color: #2271b1;
+	text-decoration: none;
+}
+
+.lukstack-help-card a:hover {
+	color: #135e96;
+	text-decoration: underline;
+}
+
+.lukstack-info-table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 12px 0;
+}
+
+.lukstack-info-table th,
+.lukstack-info-table td {
+	padding: 10px 12px;
+	text-align: left;
+	border-bottom: 1px solid #e0e0e0;
+	vertical-align: top;
+}
+
+.lukstack-info-table th {
+	font-weight: 600;
+	color: #1d2327;
+	width: 200px;
+	background: #f9f9f9;
+}
+
+.lukstack-info-table td {
+	color: #50575e;
+}
+
+.lukstack-info-table tr:last-child th,
+.lukstack-info-table tr:last-child td {
+	border-bottom: none;
+}
+
+.lukstack-info-table code {
+	font-size: 12px;
+}
+
+/* ============================
+   Responsive: Tablet (<=1024px)
+   ============================ */
+@media screen and (max-width: 1024px) {
+	.lukstack-stats {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.lukstack-table .hide-tablet,
+	.lukstack-table thead .hide-tablet {
+		display: none;
+	}
+}
+
+/* ============================
+   Responsive: Small Tablet / Large Phone (<=782px)
+   ============================ */
+@media screen and (max-width: 782px) {
+	.lukstack-wrap {
+		padding-right: 10px;
+	}
+
+	.lukstack-wrap input[type="url"],
+	.lukstack-wrap input[type="email"],
+	.lukstack-wrap input[type="text"] {
+		width: 100%;
+		margin-bottom: 10px;
+		display: block;
+		min-width: unset;
+	}
+
+	.lukstack-wrap .button {
+		width: 100%;
+		justify-content: center;
+		margin-bottom: var(--spacing-sm);
+	}
+
+	.lukstack-wrap .widefat td,
+	.lukstack-wrap .widefat thead th {
+		padding: 12px;
+		font-size: 13px;
+	}
+
+	.lukstack-wrap .form-table th,
+	.lukstack-wrap .form-table td {
+		display: block;
+		width: 100%;
+		padding: 12px 0;
+	}
+
+	.lukstack-header {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 10px;
+	}
+
+	.lukstack-form .form-row {
+		flex-direction: column;
+	}
+
+	.lukstack-form input.regular-text {
+		width: 100%;
+		min-width: unset;
+	}
+
+	/* Help page info table responsive */
+	.lukstack-info-table th {
+		width: auto;
+	}
+}
+
+/* ============================
+   Responsive: Mobile (<=600px) – Card Transformation
+   ============================ */
+@media screen and (max-width: 600px) {
+	/* Stats as compact scrollable chips */
+	.lukstack-stats {
+		display: flex;
+		gap: 8px;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		padding-bottom: 4px;
+	}
+
+	.lukstack-stat-card {
+		min-width: 120px;
+		padding: 12px;
+		flex-shrink: 0;
+	}
+
+	.lukstack-stat-card h3 {
+		font-size: 11px;
+		margin-bottom: 4px;
+	}
+
+	.lukstack-stat-card .stat-value {
+		font-size: 24px;
+	}
+
+	/* Table container: remove card wrapper styling on mobile */
+	.lukstack-wrap .table-container {
+		background: transparent;
+		box-shadow: none;
+		border: none;
+	}
+
+	/* Table → Cards transformation */
+	.lukstack-table thead {
+		display: none;
+	}
+
+	.lukstack-table tbody tr {
+		display: block;
+		background: white;
+		border-radius: var(--border-radius);
+		box-shadow: var(--shadow-sm);
+		border: 1px solid var(--gray-200);
+		margin-bottom: var(--spacing-md);
+		padding: var(--spacing-md);
+	}
+
+	.lukstack-table tbody tr:hover {
+		background: white;
+	}
+
+	.lukstack-table td {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 8px 0;
+		border-bottom: 1px solid var(--gray-100);
+	}
+
+	.lukstack-table td:last-child {
+		border-bottom: none;
+	}
+
+	/* data-label pseudo-element for card view */
+	.lukstack-table td::before {
+		content: attr(data-label);
+		font-weight: 600;
+		color: var(--gray-600);
+		font-size: 12px;
+		text-transform: uppercase;
+		letter-spacing: 0.03em;
+		flex-shrink: 0;
+		margin-right: 12px;
+	}
+
+	/* Actions cell: no label */
+	.lukstack-table td.actions::before {
+		content: none;
+	}
+
+	/* Site URL: prominent header of each card */
+	.lukstack-table td.site-url {
+		font-size: 15px;
+		font-weight: 600;
+		border-bottom: 2px solid var(--gray-200);
+		padding-bottom: 12px;
+		margin-bottom: 4px;
+		display: block;
+	}
+
+	.lukstack-table td.site-url::before {
+		content: none;
+	}
+
+	/* Show tablet-hidden columns in card view */
+	.lukstack-table .hide-tablet {
+		display: flex;
+	}
+
+	/* Action buttons: full-width row */
+	.lukstack-table .lukstack-action-buttons {
+		flex-direction: row;
+		width: 100%;
+		gap: 8px;
+	}
+
+	.lukstack-table .lukstack-action-buttons .button {
+		flex: 1;
+		width: auto;
+	}
+
+	/* No-sites empty state in card context */
+	.lukstack-table td.no-sites {
+		display: block;
+		text-align: center;
+	}
+
+	.lukstack-table td.no-sites::before {
+		content: none;
+	}
+
+	/* Help page: single column with less padding */
+	.lukstack-help-card {
+		padding: 16px 20px;
+	}
+
+	.lukstack-info-table th,
+	.lukstack-info-table td {
+		padding: 8px;
+		font-size: 13px;
+	}
+
+	.lukstack-info-table th {
+		width: auto;
+		min-width: 120px;
+	}
+}
+
+/* ============================
+   Responsive: Wide Desktop Help (>1400px)
+   ============================ */
+@media screen and (min-width: 1400px) {
+	.lukstack-help-container {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 20px;
+	}
+
+	/* Full-width cards for overview and features */
+	.lukstack-help-card:first-child,
+	.lukstack-help-card:nth-child(2) {
+		grid-column: span 2;
+	}
+}
