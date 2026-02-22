@@ -1,5 +1,6 @@
 === LukStack Uptime Monitor ===
 Contributors: lukmeyer
+Donate link: https://paypal.me/LukMeyer030
 Tags: monitoring, uptime, ssl, alerts, webhook
 Requires at least: 5.8
 Tested up to: 6.9
